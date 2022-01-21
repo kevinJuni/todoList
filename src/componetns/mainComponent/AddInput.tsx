@@ -10,7 +10,7 @@ function AddInput(props:inputProps) {
 
     return(
         <div>
-            <TextField label="title" value={props.value} onChange={(e)=>props.setValue(e.target.value)} style={{width:'480px',margin:'10px'}}/>
+            <TextField label="title" value={props.value || ""} onChange={(e)=>props.setValue(e.target.value)} style={{width:'480px',margin:'10px'}}/>
         </div>
     )
 }
