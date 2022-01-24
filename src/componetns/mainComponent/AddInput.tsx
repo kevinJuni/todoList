@@ -1,16 +1,17 @@
 import { TextField } from "@mui/material";
 import React from "react";
+import { AddInputType } from "../../type/type";
 
-interface inputProps {
-    label:string,
-    value:string|null,
-    setValue:React.Dispatch<React.SetStateAction<string | null>>
-}
-function AddInput(props:inputProps) {
+
+function AddInput(props:AddInputType) {
 
     return(
         <div>
-            <TextField label="title" value={props.value || ""} onChange={(e)=>props.setValue(e.target.value)} style={{width:'480px',margin:'10px'}}/>
+            <TextField 
+                label="title" 
+                value={props.value || ""} 
+                onChange={(e)=>props.setValue(e.target.value)} 
+                style={{width:'480px',margin:'10px'}}/>
         </div>
     )
 }

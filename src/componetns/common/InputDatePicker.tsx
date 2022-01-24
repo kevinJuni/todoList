@@ -6,8 +6,7 @@ import { AddDatePickerType } from "../../type/type";
 import dayjs from "dayjs";
 
 
-function AddDatePicker(props:AddDatePickerType) {
-
+function InputDatePicker(props:AddDatePickerType) {
     return(
         <div>
             <LocalizationProvider 
@@ -30,4 +29,4 @@ function AddDatePicker(props:AddDatePickerType) {
         </div>
     )
 }
-export default React.memo(AddDatePicker, (prevPorps, nextProps) => prevPorps.value === nextProps.value);
+export default React.memo(InputDatePicker, (prevPorps, nextProps) => prevPorps.value === nextProps.value);

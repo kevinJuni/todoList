@@ -1,12 +1,9 @@
 import { TextField } from "@mui/material";
 import React from "react";
+import { AddTimePickerType } from "../../type/type";
 
-interface propsDate {
-    value:string|null,
-    setValue:React.Dispatch<React.SetStateAction<string|null>>
-}
 
-function AddDatePicker(props:propsDate) {
+function AddTimePicker(props:AddTimePickerType) {
 
     return(
         <div>
@@ -21,4 +18,4 @@ function AddDatePicker(props:propsDate) {
         </div>
     )
 }
-export default React.memo(AddDatePicker);
+export default React.memo(AddTimePicker);

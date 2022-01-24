@@ -3,6 +3,7 @@ import { useState } from "react";
 import ButtonNav from "../componetns/common/ButtonNav";
 import AddInput from "../componetns/mainComponent/AddInput";
 import AddContainer from "../containers/addContainer/AddContainer";
+import ListContainer from "../containers/listContainer/ListContainer";
 
 
 
@@ -18,9 +19,7 @@ export default function Main() {
                     </div>
                 }
                 {value === 1 &&
-                    <div>
-                        1
-                    </div>
+                    <ListContainer/>
                 }
                 {value === 2 &&
                     <AddContainer />                  
