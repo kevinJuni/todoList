@@ -42,14 +42,19 @@ export const todoSlice = createSlice({
                 done:false
             }]
         },
-        removeTodo: (state, action:PayloadAction<ItemType>) => {
-            alert("action"+ JSON.stringify(action))
+        removeTodo: (state, action:PayloadAction<number>) => {
+            alert("action"+ JSON.stringify(action));
+            return state.filter(item=>item.id !== action.payload)
         },
+        doneToggle : (state,action:PayloadAction<number>)=>{
+            console.log(JSON.stringify(state) )
+            return state.map(item=>item.id === action.payload ?  { ...item, done: !item.done } : item)
+        }
 
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addTodo, removeTodo } = todoSlice.actions
+export const { addTodo, removeTodo, doneToggle } = todoSlice.actions
 
 export default todoSlice.reducer

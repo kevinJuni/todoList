@@ -10,11 +10,11 @@ import { getToday } from "../../util/getToday";
 export default function ListContainer() {
     const todoList = useSelector((state:RootState)=>state.todo);
     const [date, setDate] = useState<string | null>(getToday);
-    const [list,setList] = useState<TodoState[]|null>(null);
-    const [detail,setDetail] = useState<TodoState|null>(null);
+    const [list,setList] = useState<TodoState[] | null>(null);
+    const [detail,setDetail] = useState<TodoState | null>(null);
     
     useEffect(()=>{
-        setList(todoList.filter(item=>item.date === date))
+        setList(todoList.filter(item=>item.date === date));
     },[date, todoList])
     return(
         <div>
