@@ -1,18 +1,16 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import ButtonOne from "../../componetns/common/ButtonOne";
 import InputDatePicker from "../../componetns/common/InputDatePicker";
-import AddDatePicker from "../../componetns/mainComponent/AddDatePicker";
 import AddInput from "../../componetns/mainComponent/AddInput";
 import AddTextarea from "../../componetns/mainComponent/AddTextarea";
 import AddTimePicker from "../../componetns/mainComponent/AddTimePicker";
-import { addTodo, removeTodo } from "../../features/todo/todoSlice";
-import { RootState } from "../../store";
+import { addTodo } from "../../features/todo/todoListSlice";
 import { getToday } from "../../util/getToday";
 
 export default function AddContainer() {
     const [title, setTitle] = useState<string | null>(null);
-    const [content, setContent] = useState<string | number | readonly string[] | undefined>("");
+    const [content, setContent] = useState<string | number | string[] | undefined>("");
     const [time, setTime] = useState<string | null>("00:00");
     const [date, setDate] = useState<string | null>(getToday);
     const dispatch = useDispatch();

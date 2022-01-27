@@ -5,23 +5,23 @@ import ButtonNav from "./componetns/common/ButtonNav";
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import ListPage from './pages/ListPage';
 function App() {
-  const [value, setValue] = useState<number>(0);
+  const [value, setValue] = useState<string>("/");
 
   return (
     <div style={{margin:'200px auto', borderRadius:12, border:'1px solid #eee', height:'700px', width:'500px', position:'relative'}}>
       <Router>
         <Routes>
-          <Route path="/"   element={<AddPage/>}/>
+          <Route path="/addPage"   element={<AddPage/>}/>
           <Route path="/listPage"   element={<ListPage/>}/>
             
         </Routes>
+        <ButtonNav setState={setValue} state={value}/>
+
       </Router>
-      <ButtonNav setState={setValue} state={value}/>
     </div>
   );
 }

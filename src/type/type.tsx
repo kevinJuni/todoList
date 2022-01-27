@@ -16,17 +16,13 @@ export interface AddTimePickerType {
 
 export interface AddTextareaType {
     label:string,
-    value:string | number | readonly string[] | undefined,
-    setValue:React.Dispatch<React.SetStateAction<string | number | readonly string[] | undefined>>
+    value:string | number | string[] | undefined,
+    setValue:React.Dispatch<React.SetStateAction<string | number | string[] | undefined>>
 }
 
 export interface ItemType {
     title:string | null,
-    content:string | number | readonly string[] | undefined,
+    content:string | number | string[] | undefined,
     date: string | null,
     time: string | null,
-}
-
-export interface TimeType {
-
 }

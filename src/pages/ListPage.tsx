@@ -1,17 +1,15 @@
-import { Box } from "@mui/material";
-import { useState } from "react";
-import ButtonNav from "../componetns/common/ButtonNav";
-import AddInput from "../componetns/mainComponent/AddInput";
-import AddContainer from "../containers/addContainer/AddContainer";
+import React from "react";
 import ListContainer from "../containers/listContainer/ListContainer";
+import ListPopupContainer from "../containers/listContainer/ListPopupContainer";
 
 
 
-export default function ListPage() {
-
+function ListPage() {
     return(
         <div >
-            Listpage
+            <ListContainer/>
+            <ListPopupContainer/>
         </div>
     )
 }
+export default React.memo(ListPage);

@@ -1,17 +1,24 @@
 import { List } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import {  useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import InputDatePicker from "../../componetns/common/InputDatePicker";
 import Item from "../../componetns/listComponent/Item";
-import { TodoState } from "../../features/todo/todoSlice";
+import { removeTodo, TodoState } from "../../features/todo/todoListSlice";
+import {  setTodo } from "../../features/todo/todoSlice";
 import { RootState } from "../../store";
 import { getToday } from "../../util/getToday";
 
 export default function ListContainer() {
-    const todoList = useSelector((state:RootState)=>state.todo);
+    const todoList = useSelector((state:RootState)=>state.todoList);
     const [date, setDate] = useState<string | null>(getToday);
     const [list,setList] = useState<TodoState[] | null>(null);
-    const [detail,setDetail] = useState<TodoState | null>(null);
+    const dispatch = useDispatch();
+    const removeItem =(id:number) =>{
+        dispatch(removeTodo(id));
+    }
+    const setTodoFn = (item:TodoState) =>{
+        dispatch(setTodo(item));
+    }
     
     useEffect(()=>{
         setList(todoList.filter(item=>item.date === date));
@@ -21,15 +28,14 @@ export default function ListContainer() {
             <InputDatePicker value={date} setValue={setDate}/>
             <List> 
             {list && list.map(item=>
-                
-                <Item 
+                    <Item 
+                    setTodoFn={setTodoFn}
+                    removeItem={removeItem}
                     {...item}
-                    setDetail={setDetail}/>
+                    />
+                
             )}
             </List>
-            <div style={{position:"absolute", left:"100%"}}>
-                    {detail && detail.id}
-            </div>
         </div>
     )
 }

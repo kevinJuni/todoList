@@ -1,29 +1,27 @@
-import { Button, Checkbox, IconButton, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import { ItemType } from "../../type/type";
+import { Button, Checkbox, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import EastIcon from '@mui/icons-material/East';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { doneToggle, removeTodo, TodoState } from "../../features/todo/todoSlice";
+import { doneToggle, TodoState } from "../../features/todo/todoListSlice";
 import { useDispatch } from "react-redux";
 import React from "react";
 interface propsType extends TodoState {
-    setDetail:React.Dispatch<React.SetStateAction<TodoState | null>>
+    setTodoFn:(item:TodoState)=>void,
+    removeItem: (id:number)=>void,
 }
 
-function Item({setDetail,...props}:propsType) {
+function Item({setTodoFn, removeItem,  ...props}:propsType) {
     const dispatch = useDispatch();
-
-
+   
     return(
         <ListItem
-
         style={{border:'1px solid #eee',padding:'5px 15px'}}
         disableGutters
         secondaryAction={
             <div style={{paddingRight:'15px'}}>
-                <Button style={{color:'black'}}onClick={()=>dispatch(removeTodo(props.id))} >
+                <Button style={{color:'black'}} onClick={()=>removeItem(props.id)}>
                     <DeleteIcon/>
                 </Button>
-                <Button style={{color:'black'}} onClick={()=>{console.log(props);setDetail(props)}}>
+                <Button style={{color:'black'}} onClick={()=>setTodoFn(props)}>
                     <EastIcon/>
                 </Button>
             </div>
@@ -43,4 +41,4 @@ function Item({setDetail,...props}:propsType) {
         </ListItem>
     )
 }
-export default React.memo(Item);
+export default React.memo(Item,(pre,next)=>pre.id === next.id);
