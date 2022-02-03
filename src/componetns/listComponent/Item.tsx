@@ -9,7 +9,7 @@ interface propsType extends TodoState {
     removeItem: (id:number)=>void,
 }
 
-function Item({setTodoFn, removeItem,  ...props}:propsType) {
+function Item({setTodoFn, removeItem, ...props}:propsType) {
     const dispatch = useDispatch();
    
     return(
@@ -41,4 +41,4 @@ function Item({setTodoFn, removeItem,  ...props}:propsType) {
         </ListItem>
     )
 }
-export default React.memo(Item,(pre,next)=>pre.id === next.id);
+export default React.memo(Item,(pre,next)=>pre.done === next.done);

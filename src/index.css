@@ -12,7 +12,47 @@ code {
     monospace;
 }
 
-.inputbox{
+.inputbox {
   width: 1000px;
   height: 1000px;
+}
+.popupwrap {
+  position: absolute;
+  left: 100%;
+  top: 50px;
+  border: 1px solid #eee;
+  margin-left: 10px;
+  height: 500px;
+  width: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.popuptitle {
+  text-align: center;
+  padding-top: 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 20px;
+}
+.popupdate {
+  text-align: right;
+  padding-top: 9px;
+  padding-right: 10px;
+  font-size: 15px;
+}
+.popupcontent {
+  padding: 10px;
+  height: 70%;
+}
+.popupbtn {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  line-height: 35px;
+  text-align: center;
+}
+.popupbtnT {
+  background-color: #1976d290;
+}
+.popupbtnF {
+  background-color: #fc1e1e90;
 }

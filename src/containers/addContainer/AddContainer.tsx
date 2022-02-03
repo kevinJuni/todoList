@@ -20,12 +20,14 @@ export default function AddContainer() {
             <AddTimePicker value={time} setValue={setTime}/>
             <AddInput value={title} label="title" setValue={setTitle}/>
             <AddTextarea value={content} label="title" setValue={setContent}/>
-            <ButtonOne fn={()=>dispatch(addTodo({
-                title:title,
-                content:content,
-                date:date,
-                time:time
-                }))} text="추가하기"/>
+            <ButtonOne 
+                fn={()=>dispatch(addTodo({
+                    title:title,
+                    content:content,
+                    date:date,
+                    time:time
+                }))}
+                text="추가하기"/>
             
         </div>
     )

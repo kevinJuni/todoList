@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { removeItemSaga } from '../features/saga/todoSaga';
+import { removeItemSaga, toggleItemSaga } from '../features/saga/todoSaga';
 import todoListSlice from '../features/todo/todoListSlice'
 import todoSlice from '../features/todo/todoSlice'
 import createSagaMiddleware from "redux-saga";
@@ -9,6 +9,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 function* saga() {
   yield all([fork(removeItemSaga)]);
+  yield all([fork(toggleItemSaga)]);
 }
 export const store = configureStore({
   reducer: {

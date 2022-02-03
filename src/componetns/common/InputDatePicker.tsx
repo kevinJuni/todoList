@@ -13,7 +13,7 @@ function InputDatePicker(props:AddDatePickerType) {
                 dateAdapter={AdapterDateFns}
             >
                 <DatePicker
-                    className="testa"
+                    className="test"
                     label="날짜 입력"
                     inputFormat={"yyyy-MM-dd"}
                     mask={"____-__-__"}

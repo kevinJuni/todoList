@@ -8,6 +8,7 @@ import {
   Route
 } from "react-router-dom";
 import ListPage from './pages/ListPage';
+import CalendarPage from './pages/CalendarPage';
 function App() {
   const [value, setValue] = useState<string>("/");
 
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/addPage"   element={<AddPage/>}/>
           <Route path="/listPage"   element={<ListPage/>}/>
+          <Route path="/"   element={<CalendarPage/>}/>
             
         </Routes>
         <ButtonNav setState={setValue} state={value}/>

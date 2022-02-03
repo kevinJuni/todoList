@@ -48,7 +48,9 @@ export const todoListSlice = createSlice({
         },
         doneToggle : (state,action:PayloadAction<number>)=>{
             console.log("doneToggle..!"); 
-            return state.map(item=>item.id === action.payload ?  { ...item, done: !item.done } : item)
+            return state.map(item=>{
+                return item.id === action.payload ?  { ...item, done: !item.done } : item
+            })
         }
 
     },

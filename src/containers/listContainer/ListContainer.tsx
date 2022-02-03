@@ -3,15 +3,17 @@ import {  useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import InputDatePicker from "../../componetns/common/InputDatePicker";
 import Item from "../../componetns/listComponent/Item";
+import ListPopup from "../../componetns/listComponent/ListPopup";
 import { removeTodo, TodoState } from "../../features/todo/todoListSlice";
 import {  setTodo } from "../../features/todo/todoSlice";
 import { RootState } from "../../store";
 import { getToday } from "../../util/getToday";
 
 export default function ListContainer() {
-    const todoList = useSelector((state:RootState)=>state.todoList);
     const [date, setDate] = useState<string | null>(getToday);
     const [list,setList] = useState<TodoState[] | null>(null);
+
+    const todoList = useSelector((state:RootState)=>state.todoList);
     const dispatch = useDispatch();
     const removeItem =(id:number) =>{
         dispatch(removeTodo(id));
@@ -33,9 +35,9 @@ export default function ListContainer() {
                     removeItem={removeItem}
                     {...item}
                     />
-                
             )}
             </List>
+            {/* <ListPopup todo={todo}/> */}
         </div>
     )
 }
